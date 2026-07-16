@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Github, ExternalLink, Filter, FolderKanban, X, Trophy, Sparkles } from 'lucide-react';
 import { projects } from '../data';
 import { Project } from '../types';
+import LiquidText from './LiquidText';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -17,18 +18,18 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 sm:py-28 relative z-10 text-white transition-colors"
+      className="py-20 sm:py-28 relative z-10 text-slate-900 dark:text-white transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-white/50">Portfolio</span>
-          <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-white uppercase mt-2">
-            Featured Projects
+          <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-slate-500 dark:text-white/50">Portfolio</span>
+          <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-slate-900 dark:text-white uppercase mt-2">
+            <LiquidText text="Featured Projects" />
           </h2>
-          <div className="h-[1px] w-16 bg-white/40 mx-auto mt-4" />
-          <p className="mt-4 text-white/60 text-sm sm:text-base leading-relaxed">
+          <div className="h-[1px] w-16 bg-slate-300 dark:bg-white/40 mx-auto mt-4" />
+          <p className="mt-4 text-slate-600 dark:text-white/60 text-sm sm:text-base leading-relaxed">
             A hand-picked collection of software products I have designed, engineered, and shipped. Click on any card to dive deep.
           </p>
         </div>
@@ -41,8 +42,8 @@ export default function Projects() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-widest transition-all duration-200 flex items-center gap-1.5 cursor-pointer border ${
                 activeCategory === cat
-                  ? 'bg-white text-black border-white font-bold shadow-md shadow-white/10'
-                  : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:text-white'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-black border-slate-900 dark:border-white font-bold shadow-md shadow-slate-900/10 dark:shadow-white/10'
+                  : 'bg-black/5 dark:bg-white/5 text-slate-700 dark:text-white/70 border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:text-slate-950 dark:hover:text-white'
               }`}
             >
               <Filter className="w-3.5 h-3.5" />
@@ -67,17 +68,17 @@ export default function Projects() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setSelectedProject(project)}
-                className="group rounded-3xl overflow-hidden glass-panel border border-white/10 hover:border-white/25 transition-all duration-300 cursor-pointer flex flex-col h-full relative"
+                className="group rounded-3xl overflow-hidden glass-panel border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25 transition-all duration-300 cursor-pointer flex flex-col h-full relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none" />
 
                 {/* Card Header Illustration/Gradient */}
                 <div className={`h-48 ${project.image} relative overflow-hidden flex items-center justify-center p-6 text-white`}>
                   {/* Subtle Grid overlay */}
-                  <div className="absolute inset-0 bg-white/[0.04] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+                  <div className="absolute inset-0 bg-black/[0.02] dark:bg-white/[0.04] bg-[radial-gradient(#888_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
                   
                   {/* Floating category badge */}
-                  <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/60 border border-white/15 text-white text-[9px] font-mono tracking-widest uppercase">
+                  <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-slate-900/80 dark:bg-black/60 border border-black/10 dark:border-white/15 text-white text-[9px] font-mono tracking-widest uppercase">
                     {project.category}
                   </span>
 
@@ -86,7 +87,7 @@ export default function Projects() {
 
                   {/* Highlights Metric Pill */}
                   {project.metrics && (
-                    <div className="absolute bottom-4 left-4 right-4 px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 text-white text-[9px] font-mono tracking-widest uppercase flex items-center gap-1.5">
+                    <div className="absolute bottom-4 left-4 right-4 px-3 py-1.5 rounded-xl bg-slate-900/80 dark:bg-black/60 border border-black/10 dark:border-white/10 text-white text-[9px] font-mono tracking-widest uppercase flex items-center gap-1.5">
                       <Trophy className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                       <span className="truncate">{project.metrics}</span>
                     </div>
@@ -97,15 +98,15 @@ export default function Projects() {
                 <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
                     {project.featured && (
-                      <div className="flex items-center gap-1 text-[10px] font-bold tracking-wider text-white/50 uppercase font-mono">
+                      <div className="flex items-center gap-1 text-[10px] font-bold tracking-wider text-slate-500 dark:text-white/50 uppercase font-mono">
                         <Sparkles className="w-3 h-3" />
                         <span>Featured Creation</span>
                       </div>
                     )}
-                    <h3 className="font-display font-black text-lg sm:text-xl uppercase tracking-wider text-white leading-tight group-hover:opacity-75 transition-opacity">
+                    <h3 className="font-display font-black text-lg sm:text-xl uppercase tracking-wider text-slate-900 dark:text-white leading-tight group-hover:opacity-75 transition-opacity">
                       {project.title}
                     </h3>
-                    <p className="text-white/70 text-xs sm:text-sm line-clamp-3 leading-relaxed font-light">
+                    <p className="text-slate-600 dark:text-white/70 text-xs sm:text-sm line-clamp-3 leading-relaxed font-light font-sans">
                       {project.description}
                     </p>
                   </div>
@@ -115,7 +116,7 @@ export default function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded-md border border-white/10 bg-white/5 text-white/70 text-[9px] font-mono uppercase tracking-wider"
+                        className="px-2 py-0.5 rounded-md border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-white/70 text-[9px] font-mono uppercase tracking-wider"
                       >
                         {tag}
                       </span>
@@ -130,7 +131,7 @@ export default function Projects() {
         {/* Project Detail Modal Overlay with Glass Panel HUD */}
         <AnimatePresence>
           {selectedProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-lg overflow-y-auto">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/50 dark:bg-black/80 backdrop-blur-lg overflow-y-auto">
               {/* Dismiss Area */}
               <div className="absolute inset-0" onClick={() => setSelectedProject(null)} />
 
@@ -140,7 +141,7 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.25 }}
-                className="relative w-full max-w-2xl rounded-3xl glass-panel border border-white/25 shadow-2xl overflow-hidden z-10 flex flex-col max-h-[90vh]"
+                className="relative w-full max-w-2xl rounded-3xl glass-panel border border-black/10 dark:border-white/25 shadow-2xl overflow-hidden z-10 flex flex-col max-h-[90vh]"
               >
                 {/* Header Graphic */}
                 <div className={`h-40 ${selectedProject.image} relative flex items-center justify-center text-white shrink-0`}>
@@ -148,7 +149,7 @@ export default function Projects() {
                   <FolderKanban className="w-16 h-16 opacity-30" />
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-colors cursor-pointer"
+                    className="absolute top-4 right-4 p-2 rounded-full bg-black/10 hover:bg-slate-900 dark:bg-white/10 dark:hover:bg-white text-slate-800 dark:text-white hover:text-white dark:hover:text-black transition-colors cursor-pointer"
                     aria-label="Close modal"
                   >
                     <X className="w-4 h-4" />
@@ -160,19 +161,19 @@ export default function Projects() {
                   
                   {/* Title & Category */}
                   <div className="space-y-1">
-                    <span className="px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-white text-[10px] font-mono tracking-widest uppercase">
+                    <span className="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-800 dark:text-white text-[10px] font-mono tracking-widest uppercase">
                       {selectedProject.category}
                     </span>
-                    <h3 className="font-display font-black text-2xl uppercase tracking-wider text-white pt-2">
+                    <h3 className="font-display font-black text-2xl uppercase tracking-wider text-slate-900 dark:text-white pt-2">
                       {selectedProject.title}
                     </h3>
                   </div>
 
                   {/* Highlights Banner */}
                   {selectedProject.metrics && (
-                    <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                      <Trophy className="w-5 h-5 text-white shrink-0" />
-                      <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white font-mono">
+                    <div className="p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center gap-3">
+                      <Trophy className="w-5 h-5 text-slate-800 dark:text-white shrink-0" />
+                      <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-white font-mono">
                         {selectedProject.metrics}
                       </div>
                     </div>
@@ -180,24 +181,24 @@ export default function Projects() {
 
                   {/* Narrative description */}
                   <div className="space-y-3">
-                    <h4 className="font-display font-black text-sm uppercase tracking-widest text-white">
+                    <h4 className="font-display font-black text-sm uppercase tracking-widest text-slate-900 dark:text-white">
                       Project Overview
                     </h4>
-                    <p className="text-white/70 text-sm sm:text-base leading-relaxed font-light">
+                    <p className="text-slate-600 dark:text-white/70 text-sm sm:text-base leading-relaxed font-light">
                       {selectedProject.longDescription}
                     </p>
                   </div>
 
                   {/* Tags */}
                   <div className="space-y-2">
-                    <h4 className="font-display font-black text-sm uppercase tracking-widest text-white">
+                    <h4 className="font-display font-black text-sm uppercase tracking-widest text-slate-900 dark:text-white">
                       Built With
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-1 rounded-md border border-white/10 bg-white/5 text-white/70 text-xs font-mono uppercase tracking-wider"
+                          className="px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-slate-600 dark:text-white/70 text-xs font-mono uppercase tracking-wider"
                         >
                           {tag}
                         </span>
@@ -206,13 +207,13 @@ export default function Projects() {
                   </div>
 
                   {/* Actions bar */}
-                  <div className="flex gap-4 pt-4 border-t border-white/10 shrink-0">
+                  <div className="flex gap-4 pt-4 border-t border-black/10 dark:border-white/10 shrink-0">
                     <a
                       id="modal-github"
                       href={selectedProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-transparent hover:bg-white/5 text-white font-display font-bold text-xs uppercase tracking-widest border border-white/20 hover:border-white transition-all text-center cursor-pointer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-black/5 hover:bg-slate-900 hover:text-white dark:bg-transparent dark:hover:bg-white/5 text-slate-800 dark:text-white font-display font-bold text-xs uppercase tracking-widest border border-black/15 dark:border-white/20 hover:border-black dark:hover:border-white transition-all text-center cursor-pointer"
                     >
                       <Github className="w-4 h-4" />
                       <span>Code Repository</span>
@@ -222,7 +223,7 @@ export default function Projects() {
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-white text-black font-display font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-all text-center cursor-pointer shadow-md"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-black font-display font-bold text-xs uppercase tracking-widest hover:bg-slate-800 dark:hover:bg-white/90 transition-all text-center cursor-pointer shadow-md"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span>Launch Site</span>

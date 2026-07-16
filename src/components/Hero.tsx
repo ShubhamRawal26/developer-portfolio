@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, Search, Plus, Sparkles, RefreshCw, Layers, Check, Info, Code2, Cpu, Compass, Layout } from 'lucide-react';
 import { CartItem } from '../types';
+import LiquidText from './LiquidText';
 
 interface HeroProps {
   onAddToCart: (item: Omit<CartItem, 'quantity'>) => void;
@@ -300,57 +301,59 @@ export default function Hero({ onAddToCart }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-4 sm:mt-8 space-y-8">
         
         {/* Main Floating Glass Display Board from the mockup */}
-        <div className="w-full glass-panel rounded-[32px] p-6 sm:p-10 relative overflow-hidden border border-white/20 shadow-2xl">
+        <div className="w-full glass-panel rounded-[32px] p-6 sm:p-10 relative overflow-hidden border border-black/10 dark:border-white/20 shadow-2xl">
           
           {/* Subtle interior lighting glow */}
-          <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none" />
+          <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white/5 dark:bg-white/5 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-orange-400/10 blur-3xl pointer-events-none" />
-
+ 
           {/* Grid Layout inside Main Board */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             
             {/* COLUMN 1: TOP/LEFT Specifications (O2® Details re-themed for AM®) */}
-            <div className="lg:col-span-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-white/10 pb-8">
+            <div className="lg:col-span-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-black/10 dark:border-white/10 pb-8">
               
               {/* Brand block */}
               <div className="space-y-1.5 text-left">
                 <div className="flex items-center gap-2">
-                  <span className="font-display font-black text-2xl tracking-tighter text-white">AM®</span>
-                  <span className="px-2 py-0.5 rounded-full bg-white/10 border border-white/20 font-mono text-[9px] tracking-widest text-white/80">
+                  <span className="font-display font-black text-2xl tracking-tighter text-slate-900 dark:text-white">
+                    <LiquidText text="AM®" />
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 font-mono text-[9px] tracking-widest text-slate-700 dark:text-white/80">
                     CREATIVE ENGINEERING
                   </span>
                 </div>
-                <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-white/50">
+                <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-slate-500 dark:text-white/50">
                   DEVELOPER & INTERACTIVE INTERFACE DESIGNS
                 </h2>
               </div>
-
+ 
               {/* Giant Serial "01" and Specs text perfectly replicating the mockup */}
               <div className="flex items-start gap-6 max-w-2xl text-left">
                 {/* Giant vertical serial */}
-                <div className="font-display font-black text-6xl sm:text-7xl leading-none text-white/90 select-none tracking-tighter border-r border-white/10 pr-6">
+                <div className="font-display font-black text-6xl sm:text-7xl leading-none text-slate-900 dark:text-white/90 select-none tracking-tighter border-r border-black/10 dark:border-white/10 pr-6">
                   01
                 </div>
-
+ 
                 {/* Spec sheets */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[10px] font-mono text-white/70 leading-relaxed uppercase tracking-wider">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[10px] font-mono text-slate-600 dark:text-white/70 leading-relaxed uppercase tracking-wider">
                   <div className="space-y-1">
-                    <p className="font-bold text-white">AM DESIGN LAB</p>
-                    <p className="text-white/50">BY ALEX MORGAN</p>
-                    <p className="text-white/50">REVISION LATE 2026</p>
-                    <p className="text-[9px] text-white/40 font-sans leading-tight normal-case mt-1 max-w-[200px]">
+                    <p className="font-bold text-slate-900 dark:text-white">AM DESIGN LAB</p>
+                    <p className="text-slate-500 dark:text-white/50">BY ALEX MORGAN</p>
+                    <p className="text-slate-500 dark:text-white/50">REVISION LATE 2026</p>
+                    <p className="text-[9px] text-slate-500 dark:text-white/40 font-sans leading-tight normal-case mt-1 max-w-[200px]">
                       {MOCKUP_PRESETS.details}
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-bold text-white">DEV STACK:</p>
-                    <p className="text-white/50">{MOCKUP_PRESETS.materials.engine}</p>
-                    <p className="font-bold text-white mt-2">STYLE COMPOSE:</p>
-                    <p className="text-white/50">{MOCKUP_PRESETS.materials.styles}</p>
+                    <p className="font-bold text-slate-900 dark:text-white">DEV STACK:</p>
+                    <p className="text-slate-500 dark:text-white/50">{MOCKUP_PRESETS.materials.engine}</p>
+                    <p className="font-bold text-slate-900 dark:text-white mt-2">STYLE COMPOSE:</p>
+                    <p className="text-slate-500 dark:text-white/50">{MOCKUP_PRESETS.materials.styles}</p>
                   </div>
                 </div>
               </div>
-
+ 
             </div>
 
             {/* COLUMN 2: LAB COMPONENT CARD (Left Side, replacing Sneakers) */}

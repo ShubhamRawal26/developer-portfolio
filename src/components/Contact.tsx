@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Send, CheckCircle2, MessageSquare, AlertCircle, RefreshCw, Sparkles } from 'lucide-react';
 import { developerProfile } from '../data';
+import LiquidText from './LiquidText';
 
 interface FormState {
   name: string;
@@ -75,18 +76,18 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 sm:py-28 relative z-10 text-white transition-colors"
+      className="py-20 sm:py-28 relative z-10 text-slate-900 dark:text-white transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-          <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-white/50">Inquiries</span>
-          <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-white uppercase mt-2">
-            Let's Start a Conversation
+          <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-slate-500 dark:text-white/50">Inquiries</span>
+          <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight text-slate-900 dark:text-white uppercase mt-2">
+            <LiquidText text="Let's Start a Conversation" />
           </h2>
-          <div className="h-[1px] w-16 bg-white/40 mx-auto mt-4" />
-          <p className="mt-4 text-white/60 text-sm sm:text-base leading-relaxed">
+          <div className="h-[1px] w-16 bg-slate-300 dark:bg-white/40 mx-auto mt-4" />
+          <p className="mt-4 text-slate-600 dark:text-white/60 text-sm sm:text-base leading-relaxed">
             Have an exciting product concept, an open engineering role, or just want to say hi? I'd love to connect.
           </p>
         </div>
@@ -96,34 +97,34 @@ export default function Contact() {
           
           {/* Quick info column (Left 4-cols) */}
           <div className="lg:col-span-5 space-y-6 sm:sticky sm:top-32">
-            <div className="p-6 sm:p-8 rounded-[24px] glass-panel border border-white/20 space-y-6 text-left relative group overflow-hidden">
+            <div className="p-6 sm:p-8 rounded-[24px] glass-panel border border-black/10 dark:border-white/20 space-y-6 text-left relative group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none" />
               
               <div className="flex items-center gap-3">
-                <MessageSquare className="w-5 h-5 text-white" />
-                <h3 className="font-display font-black text-lg uppercase tracking-wider text-white">
+                <MessageSquare className="w-5 h-5 text-slate-800 dark:text-white" />
+                <h3 className="font-display font-black text-lg uppercase tracking-wider text-slate-900 dark:text-white">
                   Contact Info
                 </h3>
               </div>
               
-              <p className="text-white/70 text-sm leading-relaxed font-light">
+              <p className="text-slate-600 dark:text-white/70 text-sm leading-relaxed font-light">
                 Fill out the secure messaging form, or email me directly. I usually respond within 24 working hours.
               </p>
 
-              <div className="space-y-4 pt-4 border-t border-white/10">
+              <div className="space-y-4 pt-4 border-t border-black/10 dark:border-white/10">
                 <a
                   id="direct-email-link"
                   href={`mailto:${developerProfile.email}`}
-                  className="flex items-center gap-4 group cursor-pointer text-white hover:opacity-85 transition-colors"
+                  className="flex items-center gap-4 group cursor-pointer text-slate-800 hover:text-slate-950 dark:text-white dark:hover:opacity-85 transition-colors"
                 >
-                  <div className="p-3 rounded-xl bg-white/10 border border-white/15 group-hover:bg-white/20 transition-colors">
-                    <Mail className="w-5 h-5 text-white" />
+                  <div className="p-3 rounded-xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 group-hover:bg-black/10 dark:group-hover:bg-white/20 transition-colors">
+                    <Mail className="w-5 h-5 text-slate-800 dark:text-white" />
                   </div>
                   <div className="space-y-0.5 text-left">
-                    <span className="block text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest">
+                    <span className="block text-[10px] font-mono font-bold text-slate-400 dark:text-white/40 uppercase tracking-widest">
                       Direct Email
                     </span>
-                    <span className="text-sm font-bold tracking-tight font-mono break-all text-white">
+                    <span className="text-sm font-bold tracking-tight font-mono break-all text-slate-800 dark:text-white">
                       {developerProfile.email}
                     </span>
                   </div>
@@ -131,9 +132,9 @@ export default function Contact() {
               </div>
 
               {/* Decorative banner */}
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex gap-3 text-left">
-                <Sparkles className="w-5 h-5 text-white shrink-0 mt-0.5 animate-pulse" />
-                <p className="text-xs text-white/60 leading-relaxed font-light">
+              <div className="p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex gap-3 text-left">
+                <Sparkles className="w-5 h-5 text-slate-800 dark:text-white shrink-0 mt-0.5 animate-pulse" />
+                <p className="text-xs text-slate-600 dark:text-white/60 leading-relaxed font-light">
                   <strong>Local Time Context:</strong> I operate out of the PST timezone, and I am available for fully remote integrations across standard US timelines.
                 </p>
               </div>
@@ -142,7 +143,7 @@ export default function Contact() {
 
           {/* Interactive Form card (Right 7-cols) */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-[24px] glass-panel border border-white/20">
+            <div className="p-6 sm:p-8 rounded-[24px] glass-panel border border-black/10 dark:border-white/20">
               <AnimatePresence mode="wait">
                 {!submitSuccess ? (
                   <motion.form
@@ -160,7 +161,7 @@ export default function Contact() {
                       <div className="space-y-2">
                         <label
                           htmlFor="name"
-                          className="block text-[10px] font-mono font-bold tracking-widest uppercase text-white/50"
+                          className="block text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500 dark:text-white/50"
                         >
                           Full Name
                         </label>
@@ -170,10 +171,10 @@ export default function Contact() {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3.5 rounded-xl border bg-white/5 text-white text-sm focus:outline-none transition-all placeholder-white/30 ${
+                          className={`w-full px-4 py-3.5 rounded-xl border bg-black/5 dark:bg-white/5 text-slate-900 dark:text-white text-sm focus:outline-none transition-all placeholder-slate-400 dark:placeholder-white/30 ${
                             errors.name
                               ? 'border-rose-500 focus:border-rose-600 bg-rose-500/5'
-                              : 'border-white/10 focus:border-white focus:bg-white/10'
+                              : 'border-black/15 dark:border-white/10 focus:border-slate-800 dark:focus:border-white focus:bg-black/10 dark:focus:bg-white/10'
                           }`}
                           placeholder="Jane Doe"
                         />
@@ -189,7 +190,7 @@ export default function Contact() {
                       <div className="space-y-2">
                         <label
                           htmlFor="email"
-                          className="block text-[10px] font-mono font-bold tracking-widest uppercase text-white/50"
+                          className="block text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500 dark:text-white/50"
                         >
                           Email Address
                         </label>
@@ -199,10 +200,10 @@ export default function Contact() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3.5 rounded-xl border bg-white/5 text-white text-sm focus:outline-none transition-all placeholder-white/30 ${
+                          className={`w-full px-4 py-3.5 rounded-xl border bg-black/5 dark:bg-white/5 text-slate-900 dark:text-white text-sm focus:outline-none transition-all placeholder-slate-400 dark:placeholder-white/30 ${
                             errors.email
                               ? 'border-rose-500 focus:border-rose-600 bg-rose-500/5'
-                              : 'border-white/10 focus:border-white focus:bg-white/10'
+                              : 'border-black/15 dark:border-white/10 focus:border-slate-800 dark:focus:border-white focus:bg-black/10 dark:focus:bg-white/10'
                           }`}
                           placeholder="jane@example.com"
                         />
@@ -219,7 +220,7 @@ export default function Contact() {
                     <div className="space-y-2">
                       <label
                         htmlFor="subject"
-                        className="block text-[10px] font-mono font-bold tracking-widest uppercase text-white/50"
+                        className="block text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500 dark:text-white/50"
                       >
                         Subject
                       </label>
@@ -229,10 +230,10 @@ export default function Contact() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3.5 rounded-xl border bg-white/5 text-white text-sm focus:outline-none transition-all placeholder-white/30 ${
+                        className={`w-full px-4 py-3.5 rounded-xl border bg-black/5 dark:bg-white/5 text-slate-900 dark:text-white text-sm focus:outline-none transition-all placeholder-slate-400 dark:placeholder-white/30 ${
                           errors.subject
                             ? 'border-rose-500 focus:border-rose-600 bg-rose-500/5'
-                            : 'border-white/10 focus:border-white focus:bg-white/10'
+                            : 'border-black/15 dark:border-white/10 focus:border-slate-800 dark:focus:border-white focus:bg-black/10 dark:focus:bg-white/10'
                         }`}
                         placeholder="Collaboration Opportunities"
                       />
@@ -248,7 +249,7 @@ export default function Contact() {
                     <div className="space-y-2">
                       <label
                         htmlFor="message"
-                        className="block text-[10px] font-mono font-bold tracking-widest uppercase text-white/50"
+                        className="block text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500 dark:text-white/50"
                       >
                         Your Message
                       </label>
@@ -258,10 +259,10 @@ export default function Contact() {
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3.5 rounded-xl border bg-white/5 text-white text-sm focus:outline-none transition-all resize-none placeholder-white/30 ${
+                        className={`w-full px-4 py-3.5 rounded-xl border bg-black/5 dark:bg-white/5 text-slate-900 dark:text-white text-sm focus:outline-none transition-all resize-none placeholder-slate-400 dark:placeholder-white/30 ${
                           errors.message
                             ? 'border-rose-500 focus:border-rose-600 bg-rose-500/5'
-                            : 'border-white/10 focus:border-white focus:bg-white/10'
+                            : 'border-black/15 dark:border-white/10 focus:border-slate-800 dark:focus:border-white focus:bg-black/10 dark:focus:bg-white/10'
                         }`}
                         placeholder="Hi Alex, I would love to talk about building..."
                       />
@@ -278,7 +279,7 @@ export default function Contact() {
                       type="submit"
                       id="contact-submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4.5 rounded-xl bg-white text-black hover:bg-white/90 font-display font-bold text-xs uppercase tracking-widest transition-all disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer shadow-md"
+                      className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-white/90 font-display font-bold text-xs uppercase tracking-widest transition-all disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer shadow-md"
                     >
                       {isSubmitting ? (
                         <>
@@ -303,22 +304,22 @@ export default function Contact() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     className="py-8 text-center space-y-6"
                   >
-                    <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center mx-auto shadow-lg shadow-white/10">
+                    <div className="w-16 h-16 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black flex items-center justify-center mx-auto shadow-lg shadow-black/5 dark:shadow-white/10">
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="font-display font-black text-xl sm:text-2xl uppercase tracking-wider text-white">
+                      <h3 className="font-display font-black text-xl sm:text-2xl uppercase tracking-wider text-slate-900 dark:text-white">
                         Thank you, {submittedName}!
                       </h3>
-                      <p className="text-white/70 text-sm sm:text-base max-w-md mx-auto leading-relaxed font-light">
+                      <p className="text-slate-600 dark:text-white/70 text-sm sm:text-base max-w-md mx-auto leading-relaxed font-light">
                         Your message has been simulated and printed to local sandbox outputs successfully. I look forward to reading it!
                       </p>
                     </div>
 
                     <button
                       onClick={handleReset}
-                      className="inline-flex items-center gap-2 px-5 py-4 rounded-xl bg-white text-black font-display font-bold text-xs uppercase tracking-widest hover:bg-white/90 transition-all cursor-pointer shadow-md"
+                      className="inline-flex items-center gap-2 px-5 py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-black font-display font-bold text-xs uppercase tracking-widest hover:bg-slate-800 dark:hover:bg-white/90 transition-all cursor-pointer shadow-md"
                     >
                       <RefreshCw className="w-4 h-4" />
                       <span>Send another message</span>

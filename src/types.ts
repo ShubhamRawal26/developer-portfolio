@@ -35,3 +35,14 @@ export interface Testimonial {
   avatar: string;
   text: string;
 }
+
+export interface CartItem {
+  id: string;
+  title: string;
+  price: number;
+  image: string;
+  quantity: number;
+  size?: string;
+  color?: string;
+}
+

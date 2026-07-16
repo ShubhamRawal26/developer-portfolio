@@ -17,6 +17,139 @@
   }
 }
 
+/* Glassmorphism Refraction & Shines */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dark .glass-panel {
+  background: rgba(15, 15, 15, 0.3);
+  backdrop-filter: blur(28px) saturate(120%);
+  -webkit-backdrop-filter: blur(28px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-panel-hover:hover {
+  background: rgba(20, 20, 20, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Glass Bubble Specular Refraction Effect */
+.glass-bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(0, 0, 0, 0.05) 80%, rgba(255, 255, 255, 0.15) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 4px 10px rgba(255, 255, 255, 0.3),
+              inset 0 -4px 10px rgba(0, 0, 0, 0.15),
+              0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Real-time floating animations */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes float-bubble-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-12px) translateX(6px) scale(1.03);
+  }
+  66% {
+    transform: translateY(4px) translateX(-6px) scale(0.97);
+  }
+}
+
+@keyframes float-bubble-medium {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-8px) scale(1.05);
+  }
+}
+
+@keyframes float-bubble-fast {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.08);
+  }
+}
+
+@keyframes rotate-sphere {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-hotspot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.animate-bubble-slow {
+  animation: float-bubble-slow 9s ease-in-out infinite;
+}
+
+.animate-bubble-medium {
+  animation: float-bubble-medium 7s ease-in-out infinite;
+}
+
+.animate-bubble-fast {
+  animation: float-bubble-fast 5s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-sphere 30s linear infinite;
+}
+
+.animate-hotspot {
+  animation: pulse-hotspot 2s infinite;
+}
+
 /* Custom selection styling corresponding to the Bold Typography theme */
 ::selection {
   background-color: #ffffff;

@@ -10,20 +10,20 @@ export default function Footer() {
   return (
     <footer
       id="app-footer"
-      className="bg-white dark:bg-[#050505] text-black dark:text-white border-t border-black/10 dark:border-white/10 transition-colors py-12"
+      className="relative z-10 text-white transition-colors py-12 border-t border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Logo & copyright */}
           <div className="space-y-2 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 font-display font-black text-lg tracking-wider uppercase">
-              <span className="bg-black dark:bg-white text-white dark:text-black w-6 h-6 rounded-none flex items-center justify-center font-bold">
+            <div className="flex items-center justify-center md:justify-start gap-2.5 font-display font-black text-lg tracking-wider uppercase">
+              <span className="bg-white text-black w-7 h-7 rounded-full flex items-center justify-center font-black text-sm">
                 AM
               </span>
-              <span>{developerProfile.name}</span>
+              <span className="text-white font-extrabold">{developerProfile.name}</span>
             </div>
-            <p className="text-xs text-black/50 dark:text-white/50 font-mono tracking-wider uppercase">
+            <p className="text-[10px] font-mono tracking-[0.15em] uppercase text-white/50">
               &copy; {new Date().getFullYear()} {developerProfile.name}. ALL RIGHTS RESERVED.
             </p>
           </div>
@@ -36,9 +36,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="p-3 rounded-none bg-black/5 dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white transition-all"
+              className="p-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all cursor-pointer"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-4 h-4" />
             </a>
             <a
               id="footer-linkedin"
@@ -46,9 +46,9 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-3 rounded-none bg-black/5 dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white transition-all"
+              className="p-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all cursor-pointer"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-4 h-4" />
             </a>
             <a
               id="footer-twitter"
@@ -56,27 +56,27 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="p-3 rounded-none bg-black/5 dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white transition-all"
+              className="p-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all cursor-pointer"
             >
-              <Twitter className="w-5 h-5" />
+              <Twitter className="w-4 h-4" />
             </a>
           </div>
 
           {/* Build Info & Back to top */}
           <div className="flex items-center gap-6">
-            <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono tracking-widest uppercase text-black/40 dark:text-white/40">
+            <div className="hidden sm:flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-white/40">
               <span>MADE WITH</span>
-              <Heart className="w-3.5 h-3.5 text-black dark:text-white animate-pulse" />
+              <Heart className="w-3.5 h-3.5 text-white animate-pulse" />
               <span>USING REACT</span>
             </div>
 
             <button
               id="footer-back-to-top"
               onClick={scrollToTop}
-              className="p-3 rounded-none border border-black/15 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black transition-all cursor-pointer"
+              className="p-3.5 rounded-full bg-white text-black hover:bg-white/80 transition-all cursor-pointer shadow-md"
               aria-label="Back to top"
             >
-              <ArrowUp className="w-5 h-5" />
+              <ArrowUp className="w-4 h-4" />
             </button>
           </div>
 
